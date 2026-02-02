@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Twin Peaks Valentine Hunt</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="curtain"></div>
+  <div class="fog"></div>
+
+  <div class="card">
+
+    <!-- INTRO -->
+    <div id="intro">
+      <h1>🌲 Valentine Mystery Hunt</h1>
+      <p class="subtitle">
+        9 énigmes…<br>
+        9 lettres perdues…<br>
+        Un lieu final à retrouver.
+      </p>
+
+      <div class="icons">☕ 🥧 ⛰️</div>
+
+      <button onclick="startHunt()">Commencer ✨</button>
+      <button onclick="toggleMusic()">🎵 Musique</button>
+    </div>
+
+    <!-- GAME -->
+    <div id="game" style="display:none;">
+      <h2 id="question"></h2>
+
+      <input id="answer" placeholder="Ta réponse…" />
+
+      <button onclick="checkAnswer()">Valider</button>
+
+      <p id="result"></p>
+
+      <p class="progress">
+        Lettres trouvées : <span id="count">0</span>/9
+      </p>
+    </div>
+
+    <!-- FINAL PUZZLE -->
+    <div id="final" style="display:none;">
+      <h2>🌙 Les lettres sont là…</h2>
+      <p class="subtitle">
+        Glisse-les dans les cases pour révéler le lieu final.
+      </p>
+
+      <div id="pool" class="pool"></div>
+      <div id="dropZone" class="dropZone"></div>
+
+      <button onclick="validateFinal()">Révéler ✨</button>
+
+      <p id="finalResult"></p>
+
+      <!-- PAGE VALENTIN -->
+      <div id="valentine" style="display:none;">
+        <p class="biglove">❤️ Veux-tu être mon Valentin ?</p>
+
+        <button onclick="yes()">Oui 💘</button>
+        <button id="noBtn" onmouseover="moveNo()">Non 😅</button>
+
+        <p id="loveMessage"></p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AUDIO -->
+  <audio id="music" loop>
+    <source
+      src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Komiku/The_Darkness/Komiku_-_05_-_The_Dark_Lodge.mp3">
+  </audio>
+
+  <audio id="ding">
+    <source
+      src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9f1d0c7b6b.mp3?filename=correct-2-46134.mp3">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
