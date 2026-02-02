@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Georgia, serif;
+  background: radial-gradient(circle, #050508, #2b0000);
+  overflow: hidden;
+}
+
+.curtain {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    darkred,
+    #2a0000 60px
+  );
+  opacity: 0.18;
+}
+
+.fog {
+  position: absolute;
+  inset: 0;
+  background: black;
+  opacity: 0.08;
+  animation: pulse 6s infinite;
+}
+
+@keyframes pulse {
+  0% {opacity: 0.05;}
+  50% {opacity: 0.18;}
+  100% {opacity: 0.05;}
+}
+
+.card {
+  width: 390px;
+  padding: 35px;
+  border-radius: 28px;
+  text-align: center;
+  background: rgba(0,0,0,0.75);
+  border: 1px solid crimson;
+  box-shadow: 0 0 30px black;
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  color: pink;
+  font-size: 28px;
+}
+
+.subtitle {
+  font-style: italic;
+  color: #ddd;
+}
+
+.icons {
+  margin: 15px;
+  font-size: 22px;
+}
+
+input {
+  margin-top: 15px;
+  padding: 10px;
+  width: 80%;
+  border-radius: 14px;
+  border: none;
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 16px;
+  background: darkred;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: crimson;
+}
+
+.pool {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.letter {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  background: rgba(255,0,0,0.25);
+  border: 1px solid pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: grab;
+}
+
+.dropZone {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.slot {
+  width: 50px;
+  height: 60px;
+  border-radius: 16px;
+  border: 2px dashed crimson;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.biglove {
+  font-size: 22px;
+  margin-top: 20px;
+  color: pink;
+}
