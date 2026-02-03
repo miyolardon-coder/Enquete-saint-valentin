@@ -8,15 +8,15 @@ function normalize(text) {
 }
 
 const riddles = [
-  { question: "Énigme 1 💘 : Quelle activité sur notre liste des choses à faire ensemble avons nous complété en premier ?", answer: "faire un pique nique", letter: "B" },
-  { question: "Énigme 2 🌙 : Quel est le nom du premier restaurant que nous avons fait ensemble ?", answer: "Pastel et Sarrasin", letter: "E" },
-  { question: "Énigme 3 ☕ : Quelle était ma boisson favorite au distributeur de l'université Jean Jaurès ?", answer: "café vanille", letter: "L" },
+  { question: "Énigme 1 💘 : Quelle activité sur notre liste des choses à faire ensemble avons nous complété en premier ?", answer: "pique", letter: "B" },
+  { question: "Énigme 2 🌙 : Quel est le nom du premier restaurant que nous avons fait ensemble ?", answer: "pastel", letter: "E" },
+  { question: "Énigme 3 ☕ : Quelle était ma boisson favorite au distributeur de l'université Jean Jaurès ?", answer: "vanille", letter: "L" },
   { question: "Énigme 4 🌲 : Combien de mètres de hauteur font les arbres d'Ecosse ?", answer: "100", letter: "V" },
-  { question: "Énigme 5 🔑 : Où m'a-tu officiellement demandé d'amménager dans notre appartement ?", answer: "Ma Biche sur le toit", letter: "E" },
+  { question: "Énigme 5 🔑 : Où m'a-tu officiellement demandé d'amménager dans notre appartement ?", answer: "biche", letter: "E" },
   { question: "Énigme 6 🥧 : De quelle couleur était la rose que je t'ai offerte après ton semi marathon à Montpellier ?", answer: "blanche", letter: "D" },
-  { question: "Énigme 7 🎶 : Quel est le titre de la chanson qui nous passionnait au cours d'un certain trajet en métro ?", answer: "Infirmière", letter: "E" },
-  { question: "Énigme 8 ❤️ : Dans quel lieu nos doigts ce sont-ils enlacés pour la première fois ?", answer: "La prairie des filtres", letter: "R" },
-  { question: "Énigme 9 🌙 : Quelles sont les coordonnées exactes de notre nuit de rencontre ?", answer: "43.5586N 1.4466E", letter: "E" }
+  { question: "Énigme 7 🎶 : Quel est le titre de la chanson qui nous passionnait au cours d'un certain trajet en métro ?", answer: "infirmière", letter: "E" },
+  { question: "Énigme 8 ❤️ : Dans quel lieu nos doigts ce sont-ils enlacés pour la première fois ?", answer: "prairie", letter: "R" },
+  { question: "Énigme 9 🌙 : Quelles sont les coordonnées exactes de notre nuit de rencontre ?", answer: "43.5586N", letter: "E" }
 ];
 
 const finalWord = "BELVEDERE";
