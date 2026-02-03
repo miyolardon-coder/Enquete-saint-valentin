@@ -42,9 +42,6 @@ function checkAnswer() {
 
   if (user.includes(correct) && user.length > 0) {
 
-    document.getElementById("ding").currentTime = 0;
-    document.getElementById("ding").play();
-
     letters.push(riddles[current].letter);
 
     document.getElementById("count").innerText = letters.length;
@@ -64,9 +61,6 @@ function checkAnswer() {
     }
 
   } else {
-
-    document.getElementById("wrong").currentTime = 0;
-    document.getElementById("wrong").play();
 
     document.getElementById("result").innerText =
       "🌙 Pas tout à fait…";
