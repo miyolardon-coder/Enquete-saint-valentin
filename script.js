@@ -16,7 +16,7 @@ const riddles = [
   { question: "Énigme 6 🥧 : De quelle couleur était la rose que je t'ai offerte après ton semi marathon à Montpellier ?", answer: "blanche", letter: "D" },
   { question: "Énigme 7 🎶 : Quel est le titre de la chanson qui nous passionnait au cours d'un certain trajet en métro ?", answer: "Infirmière", letter: "E" },
   { question: "Énigme 8 ❤️ : Dans quel lieu nos doigts ce sont-ils enlacés pour la première fois ?", answer: "La prairie des filtres", letter: "R" },
-  { question: "Énigme 9 🌙 : Quelles sont les coordonnées exactes de notre nuit de rencontre ?", answer: "43.5586°N 1.4466°E", letter: "E" }
+  { question: "Énigme 9 🌙 : Quelles sont les coordonnées exactes de notre nuit de rencontre ?", answer: "43.5586N 1.4466E", letter: "E" }
 ];
 
 const finalWord = "BELVEDERE";
@@ -40,8 +40,11 @@ function checkAnswer() {
   let user = normalize(document.getElementById("answer").value);
   let correct = normalize(riddles[current].answer);
 
-  if (user.includes(correct)) {
+  if (correct.includes(user) && user.length > 0) {
+
+    document.getElementById("ding").currentTime = 0;
     document.getElementById("ding").play();
+
     letters.push(riddles[current].letter);
 
     document.getElementById("count").innerText = letters.length;
@@ -59,7 +62,12 @@ function checkAnswer() {
     } else {
       endGame();
     }
+
   } else {
+
+    document.getElementById("wrong").currentTime = 0;
+    document.getElementById("wrong").play();
+
     document.getElementById("result").innerText =
       "🌙 Pas tout à fait…";
   }
