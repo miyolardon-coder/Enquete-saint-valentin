@@ -40,7 +40,7 @@ function checkAnswer() {
   let user = normalize(document.getElementById("answer").value);
   let correct = normalize(riddles[current].answer);
 
-  if (correct.includes(user) && user.length > 0) {
+  if (user.includes(correct) && user.length > 0) {
 
     document.getElementById("ding").currentTime = 0;
     document.getElementById("ding").play();
