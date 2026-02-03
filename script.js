@@ -1,3 +1,12 @@
+function normalize(text) {
+  return text
+    .toLowerCase()
+    .trim()
+    .normalize("NFD")                // sépare les accents
+    .replace(/[\u0300-\u036f]/g, "") // supprime accents
+    .replace(/[^a-z0-9\s]/g, "");    // enlève ponctuation
+}
+
 const riddles = [
   { question: "Énigme 1 💘 : Quelle activité sur notre liste des choses à faire ensemble avons nous complété en premier ?", answer: "faire un pique-nique", letter: "B" },
   { question: "Énigme 2 🌙 : Quel est le nom du premier restaurant que nous avons fait ensemble ?", answer: "Pastel et Sarrasin", letter: "E" },
@@ -28,8 +37,8 @@ function showRiddle() {
 }
 
 function checkAnswer() {
-  let user = document.getElementById("answer").value.toLowerCase().trim();
-  let correct = riddles[current].answer.toLowerCase().trim();
+  let user = normalize(document.getElementById("answer").value);
+  let correct = normalize(riddles[current].answer);
 
   if (user.includes(correct)) {
     document.getElementById("ding").play();
