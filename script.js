@@ -15,6 +15,8 @@ let current = 0;
 let letters = [];
 
 function startHunt() {
+  document.getElementById("music").play();
+
   document.getElementById("intro").style.display = "none";
   document.getElementById("game").style.display = "block";
   showRiddle();
