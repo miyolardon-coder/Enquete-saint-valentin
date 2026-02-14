@@ -8,18 +8,20 @@ function normalize(text) {
 }
 
 const riddles = [
-  { question: "Énigme 1 💘 : Quelle activité sur notre liste des choses à faire ensemble avons nous complété en premier ?", answer: "pique", letter: "B" },
-  { question: "Énigme 2 🌙 : Quel est le nom du premier restaurant que nous avons fait ensemble ?", answer: "pastel", letter: "E" },
-  { question: "Énigme 3 ☕ : Quelle était ma boisson favorite au distributeur de l'université Jean Jaurès ?", answer: "vanille", letter: "L" },
-  { question: "Énigme 4 🌲 : Combien de mètres de hauteur font les arbres d'Ecosse ?", answer: "100", letter: "V" },
+  { question: "Énigme 1 📜 : Quelle activité sur notre liste des choses à faire ensemble avons nous complété en premier ?", answer: "pique", letter: "M" },
+  { question: "Énigme 2 🍔 : Quel est le nom du premier restaurant que nous avons fait ensemble ?", answer: "pastel", letter: "I" },
+  { question: "Énigme 3 ☕ : Quelle était ma boisson favorite au distributeur de l'université Jean Jaurès ?", answer: "vanille", letter: "S" },
+  { question: "Énigme 4 🌲 : Combien de mètres de hauteur font les arbres d'Ecosse ?", answer: "100", letter: "T" },
   { question: "Énigme 5 🔑 : Où m'a-tu officiellement demandé d'amménager dans notre appartement ?", answer: "biche", letter: "E" },
-  { question: "Énigme 6 🥧 : De quelle couleur était la rose que je t'ai offerte après ton semi marathon à Montpellier ?", answer: "blanche", letter: "D" },
-  { question: "Énigme 7 🎶 : Quel est le titre de la chanson qui nous passionnait au cours d'un certain trajet en métro ?", answer: "infirmière", letter: "E" },
-  { question: "Énigme 8 ❤️ : Dans quel lieu nos doigts ce sont-ils enlacés pour la première fois ?", answer: "prairie", letter: "R" },
+  { question: "Énigme 6 💐 : De quelle couleur était la rose que je t'ai offerte après ton semi marathon à Montpellier ?", answer: "blanche", letter: "R" },
+  { question: "Énigme 7 🎶 : Quel est le titre de la chanson qui nous passionnait au cours d'un certain trajet en métro ?", answer: "infirmière", letter: "S" },
+  { question: "Énigme 8 ❤️ : Dans quel lieu nos doigts ce sont-ils enlacés pour la première fois ?", answer: "prairie", letter: "T" },
   { question: "Énigme 9 🌙 : Quelles sont les coordonnées exactes de notre nuit de rencontre ?", answer: "43.5586N", letter: "E" }
+{ question: "Énigme 10 🧸 : Quels sont les noms de mes trois peluches fétiches ?", answer: "Alice" "Albert" "Nelson", letter: "E" },
+{ question: "Énigme 11 🏰 : Quelle activité avons-nous faite le soir de notre toute première Saint Valentin ?", answer: "Camera Obscura", letter: "R" }
 ];
 
-const finalWord = "BELVEDERE";
+const finalWord = "MISTERSTEER";
 let current = 0;
 let letters = [];
 
@@ -119,19 +121,39 @@ function dropLetter(e) {
 
 function validateFinal() {
   let slots = document.querySelectorAll(".slot");
-  let attempt = "";
+  let pool = document.getElementById("pool");
 
-  slots.forEach(slot => {
-    attempt += slot.textContent;
+  let allCorrect = true;
+
+  slots.forEach((slot, index) => {
+    let letter = slot.textContent;
+
+    if (letter === finalWord[index]) {
+
+      slot.style.background = "#2e7d32"; // vert
+      slot.style.color = "white";
+      slot.style.border = "2px solid #66bb6a";
+
+    } else {
+
+      if (letter !== "") {
+        let letterDiv = slot.firstChild;
+        pool.appendChild(letterDiv);
+      }
+
+      slot.style.background = "";
+      slot.style.border = "2px solid #999";
+      allCorrect = false;
+    }
   });
 
-  if (attempt === finalWord) {
+  if (allCorrect) {
     document.getElementById("finalResult").innerText =
-      "💘 Lieu final : BELVEDERE.";
+      "🍔 Lieu final : MISTER STEER.";
     document.getElementById("valentine").style.display = "block";
   } else {
     document.getElementById("finalResult").innerText =
-      "🌲 Pas encore… réessaie.";
+      "🌙 Certaines lettres sont incorrectes… réessaie chéri.";
   }
 }
 
@@ -143,7 +165,7 @@ function toggleMusic() {
 
 function yes() {
   document.getElementById("loveMessage").innerText =
-    "❤️ Je savais que tu dirais oui… Rendez-vous au Belvédère.";
+    "❤️ Je savais que tu dirais oui… Allons nous remplir le bidou !";
 }
 
 function moveNo() {
