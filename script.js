@@ -49,20 +49,26 @@ function checkAnswer() {
 
     letters.push(riddles[current].letter);
 
-    document.getElementById("count").innerText = current + 1;
     document.getElementById("result").innerText =
       "✨ Correct… une lettre est ajoutée.";
 
-    letters.push(riddles[current].letter);
+    current++;
 
-current++;
+    if (current < riddles.length) {
+      document.getElementById("count").innerText = current + 1;
 
-if (current < riddles.length) {
-  document.getElementById("count").innerText = current + 1;
-}
+      document.getElementById("answer").value = "";
+
+      setTimeout(() => {
+        document.getElementById("result").innerText = "";
+        showRiddle();
+      }, 900);
+
+    } else {
+      endGame();
+    }
 
   } else {
-
     document.getElementById("result").innerText =
       "🌙 Pas tout à fait…";
   }
@@ -122,7 +128,6 @@ for (let i = 6; i < finalWord.length; i++) {
 
 zone.appendChild(row1);
 zone.appendChild(row2);
-  }
 }
 
 function dragStart(e) {
