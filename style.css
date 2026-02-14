@@ -141,3 +141,9 @@ button:hover {
   transition: 0.3s;
   background: rgba(255,255,255,0.1);
 }
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
