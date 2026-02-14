@@ -30,6 +30,9 @@ function startHunt() {
 
   document.getElementById("intro").style.display = "none";
   document.getElementById("game").style.display = "block";
+
+  document.getElementById("count").innerText = 1;
+  
   showRiddle();
 }
 
@@ -46,21 +49,17 @@ function checkAnswer() {
 
     letters.push(riddles[current].letter);
 
-    document.getElementById("count").innerText = letters.length;
+    document.getElementById("count").innerText = current + 1;
     document.getElementById("result").innerText =
       "✨ Correct… une lettre est ajoutée.";
 
-    current++;
-    document.getElementById("answer").value = "";
+    letters.push(riddles[current].letter);
 
-    if (current < riddles.length) {
-      setTimeout(() => {
-        document.getElementById("result").innerText = "";
-        showRiddle();
-      }, 900);
-    } else {
-      endGame();
-    }
+current++;
+
+if (current < riddles.length) {
+  document.getElementById("count").innerText = current + 1;
+}
 
   } else {
 
