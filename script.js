@@ -17,7 +17,7 @@ const riddles = [
   { question: "Énigme 7 🎶 : Quel est le titre de la chanson qui nous passionnait au cours d'un certain trajet en métro ?", answer: "infirmière", letter: "S" },
   { question: "Énigme 8 ❤️ : Dans quel lieu nos doigts ce sont-ils enlacés pour la première fois ?", answer: "prairie", letter: "T" },
   { question: "Énigme 9 🌙 : Quelles sont les coordonnées exactes de notre nuit de rencontre ?", answer: "43.5586", letter: "E" },
-  { question: "Énigme 10 🧸 : Quels sont les noms de mes trois peluches fétiches ?", answer: "Alice Albert Nelson", letter: "E" },
+  { question: "Énigme 10 🧸 : Quels sont les noms de mes trois peluches fétiches ?", answer: "Alice", letter: "E" },
   { question: "Énigme 11 🏰 : Quelle activité avons-nous faite le soir de notre toute première Saint Valentin ?", answer: "Camera Obscura", letter: "R" }
 ];
 
@@ -89,15 +89,40 @@ function endGame() {
   });
 
   let zone = document.getElementById("dropZone");
+zone.innerHTML = ""; // vide avant de recréer
 
-  for (let i = 0; i < finalWord.length; i++) {
-    let slot = document.createElement("div");
-    slot.className = "slot";
+// Ligne 1 → MISTER (6 lettres)
+let row1 = document.createElement("div");
+row1.className = "row";
 
-    slot.addEventListener("dragover", allowDrop);
-    slot.addEventListener("drop", dropLetter);
+for (let i = 0; i < 6; i++) {
+  let slot = document.createElement("div");
+  slot.className = "slot";
+  slot.dataset.index = i;
 
-    zone.appendChild(slot);
+  slot.addEventListener("dragover", allowDrop);
+  slot.addEventListener("drop", dropLetter);
+
+  row1.appendChild(slot);
+}
+
+// Ligne 2 → STEER (5 lettres)
+let row2 = document.createElement("div");
+row2.className = "row";
+
+for (let i = 6; i < finalWord.length; i++) {
+  let slot = document.createElement("div");
+  slot.className = "slot";
+  slot.dataset.index = i;
+
+  slot.addEventListener("dragover", allowDrop);
+  slot.addEventListener("drop", dropLetter);
+
+  row2.appendChild(slot);
+}
+
+zone.appendChild(row1);
+zone.appendChild(row2);
   }
 }
 
