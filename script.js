@@ -32,7 +32,7 @@ function startHunt() {
   document.getElementById("game").style.display = "block";
 
   document.getElementById("count").innerText = 1;
-  
+  toggleMusic‎();
   showRiddle();
 }
 
